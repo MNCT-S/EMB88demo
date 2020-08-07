@@ -2,7 +2,7 @@
 組み込み開発のための実践的プログラミング  
 EMB-88 のデモソリューション
 
-## Usage
+## Requirement
 Atmel Studio 7.0
 
 ## Author
@@ -15,3 +15,6 @@ Kenichi Magara / NIT, Maizuru College (KOSEN)
 - ExBoard  
 オリジナル拡張ボードでアクチュエータ（モータとサーボ）の動作デモ．  
 SW1で正回転，SW2で逆回転します．
+
+- MAIZURU  
+MAIZURUの文字をマトリックスLEDに表示
