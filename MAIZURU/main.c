@@ -91,8 +91,8 @@ uint8_t nextDoc()
 
 void setLED()
 {
-	static	unsigned char	scan = 0;
-	uint8_t		nxt_id = nextDoc();
+	static	uint8_t		scan = 0;
+			uint8_t		nxt_id = nextDoc();
 
 	for ( int i=0; i<SIZEOF(led_now); i++ ) {
 		led_now[i] = (doc[doc_id][i] << scan) | (doc[nxt_id][i] >> (8-scan));
@@ -104,7 +104,7 @@ void setLED()
 void viewLED()
 {
 	static	unsigned char	sc = 0xfe;
-	static	unsigned char	scan = 0;
+	static	uint8_t			scan = 0;
 
 	PORTB = 0;
 	sc = (sc << 1) | (sc >> 7);
