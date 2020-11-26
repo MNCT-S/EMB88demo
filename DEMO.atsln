@@ -7,6 +7,8 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ExBoard", "ExBoard\ExBoard.
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MAIZURU", "MAIZURU\MAIZURU.cproj", "{9D2E1900-657F-45A6-A201-C9279E4673E5}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ExBoardSTM", "ExBoardSTM\ExBoardSTM.cproj", "{EA804D58-C265-4E21-8A66-06E919B118B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -21,6 +23,10 @@ Global
 		{9D2E1900-657F-45A6-A201-C9279E4673E5}.Debug|AVR.Build.0 = Debug|AVR
 		{9D2E1900-657F-45A6-A201-C9279E4673E5}.Release|AVR.ActiveCfg = Release|AVR
 		{9D2E1900-657F-45A6-A201-C9279E4673E5}.Release|AVR.Build.0 = Release|AVR
+		{EA804D58-C265-4E21-8A66-06E919B118B4}.Debug|AVR.ActiveCfg = Debug|AVR
+		{EA804D58-C265-4E21-8A66-06E919B118B4}.Debug|AVR.Build.0 = Debug|AVR
+		{EA804D58-C265-4E21-8A66-06E919B118B4}.Release|AVR.ActiveCfg = Release|AVR
+		{EA804D58-C265-4E21-8A66-06E919B118B4}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
