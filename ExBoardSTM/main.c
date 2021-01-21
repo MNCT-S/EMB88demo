@@ -11,13 +11,13 @@
 
 #define SW1_ON()	!(PINC & _BV(4))
 #define SW2_ON()	!(PINC & _BV(5))
-//#define SLOW_MODE
+#define SLOW_MODE
 #define DEG45		60		// 45deg/0.75
 
 enum MODE
 {
 	MODE1=0, MODE12=1, MODE2=2	
-}	mode = MODE2;				// pattern
+}	mode = MODE1;			// pattern
 unsigned char	pattern[][8] = {
 	{0b00010000, 0b00100000, 0b01000000, 0b10000000, 0b00010000, 0b00100000, 0b01000000, 0b10000000},
 	{0b00010000, 0b00110000, 0b00100000, 0b01100000, 0b01000000, 0b11000000, 0b10000000, 0b10010000},
@@ -51,13 +51,20 @@ int main(void)
 {
 	// STM
 	DDRB   = 0xf0;		// H:PB7-PB4 L:PB3-PB0
+	// Mode SW pullup
+	PORTB  = 0x04;		// PB1, PB2
 	// matrix led + SW
 	DDRD   = 0xf0;
 	PORTD  = 0x70;	// L:bottom led(PD7)
 	DDRC   = 0x0f;	// PC4, PC5 is input-switch
 	PORTC  = 0x3f;	// PC4, PC5 is pullup
 
-	PORTB = pattern[mode][idx];
+	// Mode Check -> can't input ???
+//	if ( !(PINB & _BV(1)) ) mode = MODE2;
+//	else if ( !(PINB & _BV(2)) ) mode = MODE12;
+
+	PORTB &= 0x0f;
+	PORTB |= pattern[mode][idx];
 
 	// Timer0
 #ifdef SLOW_MODE
