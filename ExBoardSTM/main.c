@@ -50,18 +50,21 @@ ISR(TIMER0_OVF_vect)
 int main(void)
 {
 	// STM
-	DDRB   = 0xf0;		// H:PB7-PB4 L:PB3-PB0
+	DDRB   = 0xf0;			// STM use PB7-PB4
 	// Mode SW pullup
-	PORTB  = 0x04;		// PB1, PB2
-	// matrix led + SW
-	DDRD   = 0xf0;
-	PORTD  = 0x70;	// L:bottom led(PD7)
-	DDRC   = 0x0f;	// PC4, PC5 is input-switch
-	PORTC  = 0x3f;	// PC4, PC5 is pullup
+	PORTB |= _BV(1)|_BV(2);	// PB1, PB2
+	// SW
+	DDRC  &= ~(_BV(4)|_BV(5));	// PC4, PC5 is input-switch
+	PORTC |=   _BV(4)|_BV(5);	// PC4, PC5 is pullup
+	// Matrix led
+	DDRD  |= _BV(7);
 
-	// Mode Check -> can't input ???
-//	if ( !(PINB & _BV(1)) ) mode = MODE2;
-//	else if ( !(PINB & _BV(2)) ) mode = MODE12;
+	// Mode Check
+	PORTD |= _BV(7);	// Checking before matrix-led
+	if ( !(PINB & _BV(1)) ) mode = MODE2;
+	else if ( !(PINB & _BV(2)) ) mode = MODE12;
+	else mode = MODE1;
+	PORTD &= ~_BV(7);	// Set to 'L'
 
 	PORTB &= 0x0f;
 	PORTB |= pattern[mode][idx];
@@ -77,6 +80,7 @@ int main(void)
 	sei();
     while (1) {
 		wdt_reset();
+
 		if ( SW1_ON() ) {
 			add = 1;
 #ifndef SLOW_MODE

@@ -19,8 +19,7 @@ Author : Kenichi Magara / NIT, Maizuru College (KOSEN)
 SW1で正回転，SW2で逆回転します  
 プログラム内の SLOW_MODE を有効にすると，人間の目にもわかるくらいのスピードで動きます  
 無効にすると45度ずつ動きます  
-1相励磁・1-2相励磁・2相励磁の切り替えは，mode 変数を変えてください  
-（動的に変えたかったがEMB-88の制約であきらめた）  
+電源ON時に，PB1が'L'で2相励磁，PB2が'L'で1-2相励磁，何もつなげなければ1相励磁に切り替えできます  
 Author : Kenichi Magara / NIT, Maizuru College (KOSEN)
 
 - MAIZURU  
