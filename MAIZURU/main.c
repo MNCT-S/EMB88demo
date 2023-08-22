@@ -94,7 +94,7 @@ void setLED()
 	static	uint8_t		scan = 0;
 			uint8_t		nxt_id = nextDoc();
 
-	for ( int i=0; i<SIZEOF(led_now); i++ ) {
+	for ( uint8_t i=0; i<SIZEOF(led_now); i++ ) {
 		led_now[i] = (doc[doc_id][i] << scan) | (doc[nxt_id][i] >> (8-scan));
 	}
 	scan = (scan + 1) & 7;
@@ -116,7 +116,8 @@ void viewLED()
 
 int main(void)
 {
-	unsigned long	cnt = 0;
+//	unsigned long	cnt = 0;
+	uint16_t cnt = 0;
 
 	DDRB = 0xff;
 	DDRC = 0x0f;
@@ -136,9 +137,7 @@ int main(void)
 		cnt++;
 		if ( cnt >= CTOP ) {
 			cnt = 0;
-//			cli();	// •\¦’†‚ÍŠ„‚İ‹Ö~i‚È‚­‚Ä‚à‚¿‚ç‚Â‚«‚È‚µj
 			viewLED();
-//			sei();
 		}
     }
 }
