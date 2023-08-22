@@ -3,7 +3,8 @@
 EMB-88 のデモソリューション
 
 ## Requirement
-Atmel Studio 7.0
+~~Atmel Studio 7.0~~  
+VScode に移行
 
 ***
 ## 各プロジェクトの説明 
@@ -24,4 +25,10 @@ Author : Kenichi Magara / NIT, Maizuru College (KOSEN)
 
 - MAIZURU  
 MAIZURUの文字をマトリックスLEDに表示  
+Author : Kenichi Magara / NIT, Maizuru College (KOSEN)
+
+- Mario  
+国民的ゲームの音を鳴らします．  
+SW1 で始まりの音  
+SW2 で終わりの音  
 Author : Kenichi Magara / NIT, Maizuru College (KOSEN)
